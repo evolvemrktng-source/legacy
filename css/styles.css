@@ -1,4 +1,3 @@
-
 /* ==========================================================================
    Legacy Builds Group — stylesheet
    Palette, type, and component system per the Website Development & Redesign
@@ -25,9 +24,9 @@
 
   --ink: var(--charcoal);
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
 
   --container: 1240px;
   --container-narrow: 860px;
@@ -196,6 +195,8 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   font-size: 0.78em;
   display: block;
 }
+.logo-img { height: 34px; width: auto; display: block; }
+.footer-grid .logo .logo-img { height: 40px; }
 .main-nav {
   display: flex;
   align-items: center;
@@ -238,7 +239,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   height: 2px;
   width: 100%;
   background: var(--white);
-  border-radius: 2px;
+  border-radius: 0;
   transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
 }
 .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -465,7 +466,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .service-labels span {
   padding: 9px 18px;
   border: 1px solid rgba(16,24,32,0.15);
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -586,7 +587,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   position: absolute;
   bottom: 18px;
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 0;
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -693,7 +694,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .quote-author { margin-top: 20px; color: rgba(245,243,239,0.6); font-size: 0.9rem; font-weight: 600; }
 .testimonial-dots { display: flex; gap: 8px; margin-top: 36px; justify-content: center; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(245,243,239,0.25); border: none; padding: 0; }
-.dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+.dot.active { background: var(--gold); width: 24px; border-radius: 0; }
 
 /* ---------- Insights preview ---------- */
 .insights-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -732,7 +733,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   color: var(--gray-600);
   border: 1px solid rgba(16,24,32,0.15);
   padding: 5px 12px;
-  border-radius: 999px;
+  border-radius: 0;
   margin-top: 14px;
 }
 
@@ -913,7 +914,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 }
 .workflow .step {
   padding: 12px 18px;
-  border-radius: 999px;
+  border-radius: 0;
   border: 1px solid rgba(16,24,32,0.15);
   font-size: 0.85rem;
   font-weight: 600;
@@ -967,14 +968,14 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .partner-role { color: var(--gold); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
 .partner-bio { color: var(--gray-600); font-size: 0.9rem; margin-top: 12px; }
 .partner-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.partner-tags span { font-size: 0.74rem; padding: 5px 11px; border-radius: 999px; border: 1px solid rgba(16,24,32,0.15); color: var(--charcoal); }
+.partner-tags span { font-size: 0.74rem; padding: 5px 11px; border-radius: 0; border: 1px solid rgba(16,24,32,0.15); color: var(--charcoal); }
 .partner-linkedin { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 0.85rem; font-weight: 700; color: var(--navy-900); }
 
 /* ---------- Projects grid page ---------- */
 .filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
 .filter-btn {
   padding: 10px 20px;
-  border-radius: 999px;
+  border-radius: 0;
   border: 1px solid rgba(16,24,32,0.15);
   background: var(--white);
   font-size: 0.85rem;
@@ -1009,7 +1010,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .project-card-media .status-pill {
   position: absolute; top: 14px; left: 14px; z-index: 1;
   font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
-  padding: 5px 12px; border-radius: 999px; background: rgba(7,21,34,0.75); color: var(--white);
+  padding: 5px 12px; border-radius: 0; background: rgba(7,21,34,0.75); color: var(--white);
 }
 .project-card-body { padding: 22px; }
 .project-card-body .tag { color: var(--gold); }
