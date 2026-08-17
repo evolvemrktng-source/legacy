@@ -326,10 +326,12 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   padding-top: 100px;
   padding-bottom: 130px;
   max-width: 760px;
+  text-align: left;
 }
 .hero h1 {
   font-size: clamp(3rem, 6.4vw, 5.6rem);
   font-weight: 600;
+  text-align: left;
 }
 .hero-sub {
   font-family: var(--font-display);
@@ -337,18 +339,21 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   color: var(--gold-light);
   margin-top: 20px;
   font-weight: 500;
+  text-align: left;
 }
 .hero-body {
   margin-top: 24px;
   color: rgba(245,243,239,0.78);
   font-size: 1.05rem;
   max-width: 540px;
+  text-align: left;
 }
 .hero-actions {
   display: flex;
   gap: 16px;
   margin-top: 42px;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 /* Value bar (no fabricated stats — statements per guide) */
@@ -558,7 +563,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   display: flex;
   flex-wrap: wrap;
   gap: 28px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 32px;
   color: var(--gray-600);
   font-size: 0.88rem;
@@ -567,7 +572,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .ba-slider {
   position: relative;
   max-width: 960px;
-  margin: 0 auto;
+  margin: 0;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -612,7 +617,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   font-size: 0.75rem; box-shadow: var(--shadow-md); letter-spacing: -2px;
 }
 .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
-.ba-nav { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
+.ba-nav { display: flex; justify-content: flex-start; gap: 14px; margin-top: 28px; }
 .ba-btn {
   width: 46px; height: 46px; border-radius: 50%;
   border: 1px solid rgba(16,24,32,0.15);
@@ -683,8 +688,8 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   mask-image: radial-gradient(ellipse at 70% 40%, black, transparent 75%);
 }
 .testimonial-section .container { position: relative; z-index: 1; }
-.testimonial-inner { max-width: 720px; text-align: left; }
-.stars { display: flex; gap: 5px; color: var(--gold); margin: 22px 0 0; justify-content: flex-start; }
+.testimonial-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+.stars { display: flex; gap: 5px; color: var(--gold); margin: 22px auto 0; justify-content: center; }
 .quote {
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 2.4vw, 1.7rem);
@@ -743,9 +748,6 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .cta-inner h2 { font-size: clamp(2.2rem, 4.4vw, 3.2rem); }
 .cta-inner p { margin-top: 20px; color: rgba(245,243,239,0.7); font-size: 1.05rem; }
 .cta-actions { display: flex; gap: 16px; justify-content: center; margin-top: 36px; flex-wrap: wrap; }
-/* Homepage-only: left-align the final CTA (other pages keep it centered) */
-#contact .cta-inner { text-align: left; margin: 0; max-width: 680px; }
-#contact .cta-actions { justify-content: flex-start; }
 
 /* ---------- Contact ---------- */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 72px; align-items: start; }
