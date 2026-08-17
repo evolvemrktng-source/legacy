@@ -195,7 +195,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   font-size: 0.78em;
   display: block;
 }
-.logo-img { height: 56px; width: auto; display: block; transition: height 0.35s var(--ease); }
+.logo-img { height: 76px; width: auto; display: block; transition: height 0.35s var(--ease); }
 .site-header.scrolled .logo-img { height: 38px; }
 .footer-grid .logo .logo-img { height: 56px; }
 .main-nav {
