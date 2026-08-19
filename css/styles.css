@@ -331,6 +331,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   position: relative;
   z-index: 2;
   padding-top: 100px;
+   padding-left: 64px;
   padding-bottom: 130px;
   max-width: 760px;
   text-align: left;
@@ -1179,6 +1180,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   html { font-size: 16px; }
   .main-nav, .header-cta { display: none; }
   .nav-toggle { display: flex; }
+   .hero-content { padding-left: 28px; }
   .value-grid { grid-template-columns: 1fr; }
   .value-col { border-right: none; border-bottom: 1px solid var(--navy-line); }
   .value-col:last-child { border-bottom: none; }
