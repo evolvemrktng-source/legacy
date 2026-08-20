@@ -31,6 +31,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
     updateHeroZoom();
   }
+    /* ---- Subtle parallax on section background photos ---- */
+  const parallaxEls = document.querySelectorAll('.has-bg-image, .has-photo, .testimonial-section');
+  if (parallaxEls.length && !prefersReducedMotion) {
+    let parallaxTicking = false;
+    const updateParallax = () => {
+      parallaxEls.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) {
+          const centerOffset = (rect.top + rect.height / 2) - window.innerHeight / 2;
+          const shift = centerOffset * -0.08;
+          el.style.backgroundPosition = `center calc(50% + ${shift}px)`;
+        }
+      });
+      parallaxTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!parallaxTicking) {
+        requestAnimationFrame(updateParallax);
+        parallaxTicking = true;
+      }
+    }, { passive: true });
+    updateParallax();
+  }
   /* ---- Mobile full-screen nav panel ---- */
   const navToggle = document.getElementById('nav-toggle');
   const mobilePanel = document.getElementById('mobile-panel');
