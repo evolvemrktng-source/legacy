@@ -898,7 +898,7 @@ font-size: clamp(3.4rem, 7.5vw, 6.5rem);
 .alt-row:last-child { border-bottom: none; }
 .alt-row.reverse .alt-media { order: 2; }
 .alt-media {
-  aspect-ratio: 4/4;
+  aspect-ratio: 4/5;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   position: relative;
