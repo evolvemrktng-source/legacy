@@ -403,7 +403,7 @@ font-size: clamp(3.4rem, 7.5vw, 6.5rem);
 .page-hero.has-photo::after {
   content: '';
   position: absolute; inset: 0;
-  background: rgba(7, 21, 34, 0.82);
+  background: linear-gradient(180deg, rgba(7,21,34,0.9) 0%, rgba(7,21,34,0.82) 45%, rgba(7,21,34,0.75) 100%);
   z-index: 0;
 }
 .page-hero::before {
