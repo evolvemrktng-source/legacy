@@ -325,6 +325,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   color: var(--white);
   overflow: hidden;
   background: var(--navy-950);
+  perspective: 1200px;
 }
 .hero-media {
   position: absolute; inset: 0;
@@ -333,11 +334,8 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
     linear-gradient(135deg, #17293c 0%, #0b1a29 55%, #071522 100%);
   background-size: cover;
   background-position: center;
-  animation: heroZoom 20s ease-in-out infinite alternate;
-}
-@keyframes heroZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.08); }
+  will-change: transform, opacity;
+  transform-origin: center center;
 }
 .hero-media::after {
   content: '';
