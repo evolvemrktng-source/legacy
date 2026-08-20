@@ -9,6 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
+    /* ---- Hero scroll zoom (3D cinematic effect) ---- */
+  const heroSection = document.querySelector('.hero');
+  const heroMedia = document.querySelector('.hero-media');
+  if (heroSection && heroMedia && !prefersReducedMotion) {
+    let ticking = false;
+    const updateHeroZoom = () => {
+      const rect = heroSection.getBoundingClientRect();
+      const heroHeight = rect.height || 1;
+      const progress = Math.min(Math.max(-rect.top / heroHeight, 0), 1);
+      const scale = 1 + progress * 0.3;
+      const lift = progress * -40;
+      const tilt = progress * -5;
+      const fade = 1 - progress * 0.6;
+      heroMedia.style.transform = `scale(${scale}) translateY(${lift}px) rotateX(${tilt}deg)`;
+      heroMedia.style.opacity = fade;
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateHeroZoom);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateHeroZoom();
+  }
   /* ---- Mobile full-screen nav panel ---- */
   const navToggle = document.getElementById('nav-toggle');
   const mobilePanel = document.getElementById('mobile-panel');
