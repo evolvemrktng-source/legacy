@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
      comment on html.reveal-armed .reveal). Flip ENABLE_SCROLL_REVEAL on only
      after confirming it can't strand below-the-fold content as permanently
      invisible for any visitor. */
-  const ENABLE_SCROLL_REVEAL = false;
+  const ENABLE_SCROLL_REVEAL = true;
   if (ENABLE_SCROLL_REVEAL && !prefersReducedMotion && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('reveal-armed');
     const io = new IntersectionObserver((entries) => {
