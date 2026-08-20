@@ -524,7 +524,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
 }
 .service-card:hover { transform: translateY(-6px); border-color: rgba(184,138,74,0.5); }
 .service-media {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 4;
   background: linear-gradient(150deg, #29435f, #0e1c2c 75%);
   position: relative;
 }
