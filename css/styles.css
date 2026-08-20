@@ -396,12 +396,15 @@ font-size: clamp(3.4rem, 7.5vw, 6.5rem);
 /* ==========================================================================
    Page hero (inner pages)
    ========================================================================== */
-.page-hero {
-  position: relative;
-  padding: 168px 0 96px;
-  color: var(--white);
-  background: linear-gradient(135deg, #14263a 0%, #0b1a29 60%, #071522 100%);
-  overflow: hidden;
+.page-hero.has-photo {
+  background-size: cover;
+  background-position: center;
+}
+.page-hero.has-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(7, 21, 34, 0.82);
+  z-index: 0;
 }
 .page-hero::before {
   content: '';
