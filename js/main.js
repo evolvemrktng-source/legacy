@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = el.getBoundingClientRect();
         if (rect.bottom > 0 && rect.top < window.innerHeight) {
           const centerOffset = (rect.top + rect.height / 2) - window.innerHeight / 2;
-          const shift = centerOffset * -0.08;
+          const shift = centerOffset * -0.3;
           el.style.backgroundPosition = `center calc(50% + ${shift}px)`;
         }
       });
