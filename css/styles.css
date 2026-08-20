@@ -717,8 +717,16 @@ font-size: clamp(3.4rem, 7.5vw, 6.5rem);
 .testimonial-section {
   position: relative;
   background: linear-gradient(150deg, #14263a, #071522 75%);
+  background-size: cover;
+  background-position: center;
   color: var(--white);
   overflow: hidden;
+}
+.testimonial-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(7, 21, 34, 0.85);
+  z-index: 0;
 }
 .testimonial-section::after {
   content: '';
