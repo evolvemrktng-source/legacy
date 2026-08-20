@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ---- Animated stat counters (count up once when scrolled into view) ---- */
   const statNumbers = document.querySelectorAll('.stat-number');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
   if (statNumbers.length && 'IntersectionObserver' in window) {
     const countUp = (el) => {
       const target = parseInt(el.dataset.target, 10);
