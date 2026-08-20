@@ -8,30 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
-
-      /* ---- Hero pinned scroll zoom (freezes, then releases) ---- */
+  /* ---- Hero pinned scroll zoom (photo only — text stays static and clickable) ---- */
   const heroWrapper = document.querySelector('.hero-pin-wrapper');
   const heroMedia = document.querySelector('.hero-media');
-  const heroContentEl = document.querySelector('.hero-content');
   if (heroWrapper && heroMedia && !prefersReducedMotion) {
     let ticking = false;
     const updateHeroZoom = () => {
       const rect = heroWrapper.getBoundingClientRect();
       const scrollableDistance = rect.height - window.innerHeight;
       const progress = Math.min(Math.max(-rect.top / scrollableDistance, 0), 1);
-
-      // Zoom completes by 60% of the pinned scroll, then holds (freezes) for the rest.
       const zoomProgress = Math.min(progress / 0.6, 1);
       const scale = 1 + zoomProgress * 0.35;
       const tilt = zoomProgress * -5;
       heroMedia.style.transform = `scale(${scale}) rotateX(${tilt}deg)`;
-
-      // Text fades out early so the photo is unobstructed during the freeze.
-      if (heroContentEl) {
-        const contentFade = 1 - Math.min(progress / 0.35, 1);
-        heroContentEl.style.opacity = contentFade;
-        heroContentEl.style.transform = `translateY(${(1 - contentFade) * -30}px)`;
-      }
       ticking = false;
     };
     window.addEventListener('scroll', () => {
