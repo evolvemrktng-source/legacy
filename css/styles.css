@@ -555,6 +555,12 @@ font-size: clamp(3.4rem, 7.5vw, 6.5rem);
   align-items: flex-end;
   box-shadow: var(--shadow-md);
 }
+.project-hero-media::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(7, 21, 34, 0.32);
+  z-index: 0;
+}
 .project-hero-media::after {
   content: '';
   position: absolute; inset: 0;
@@ -576,6 +582,12 @@ font-size: clamp(3.4rem, 7.5vw, 6.5rem);
   box-shadow: var(--shadow-md);
 }
 .project-thumb:nth-child(2) { background: linear-gradient(150deg, #38597a, #12233a 75%); }
+.project-thumb::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(7, 21, 34, 0.32);
+  z-index: 0;
+}
 .project-thumb::after {
   content: '';
   position: absolute; inset: 0;
