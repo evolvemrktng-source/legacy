@@ -39,7 +39,7 @@
 
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.process-pin-wrapper { position: relative; height: 70vh; }
+.process-pin-wrapper { position: relative; height: 100vh; }
 .process-pin-wrapper .hero, .process-pin-wrapper section#process {
   position: sticky;
   top: 0;
