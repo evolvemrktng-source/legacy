@@ -31,24 +31,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
     updateHeroZoom();
   }
-     /* ---- How We Work: horizontal scroll pin (GSAP ScrollTrigger) ---- */
+     /* ---- How We Work: horizontal scroll pin (scroll-linked, same technique as hero) ---- */
+  const processWrapper = document.querySelector('.process-pin-wrapper');
   const processTrack = document.getElementById('process-track');
-  if (processTrack && window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
-    gsap.registerPlugin(ScrollTrigger);
-    const trackWrap = document.querySelector('.process-track-wrap');
-    const getScrollDistance = () => Math.max(0, processTrack.scrollWidth - trackWrap.offsetWidth);
-    gsap.to(processTrack, {
-      x: () => -getScrollDistance(),
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '#process',
-        start: 'top top',
-        end: () => `+=${getScrollDistance()}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
-      },
-    });
+  const processTrackWrap = document.querySelector('.process-track-wrap');
+  if (processWrapper && processTrack && processTrackWrap && !prefersReducedMotion) {
+    let procTicking = false;
+    const updateProcessScroll = () => {
+      const rect = processWrapper.getBoundingClientRect();
+      const scrollableDistance = rect.height - window.innerHeight;
+      const progress = Math.min(Math.max(-rect.top / scrollableDistance, 0), 1);
+      const maxShift = Math.max(0, processTrack.scrollWidth - processTrackWrap.offsetWidth);
+      processTrack.style.transform = `translateX(${-progress * maxShift}px)`;
+      procTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!procTicking) {
+        requestAnimationFrame(updateProcessScroll);
+        procTicking = true;
+      }
+    }, { passive: true });
+    updateProcessScroll();
   }
     /* ---- Subtle parallax on section background photos ---- */
   const parallaxEls = document.querySelectorAll('.has-bg-image, .has-photo, .testimonial-section');
