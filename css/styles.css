@@ -39,6 +39,31 @@
 
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
+.process-pin-wrapper { position: relative; height: 280vh; }
+.process-pin-wrapper .hero, .process-pin-wrapper section#process {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.process-pin-inner { display: flex; gap: 64px; align-items: center; width: 100%; }
+.process-pin-heading { flex: 0 0 360px; }
+.process-track-wrap { flex: 1; overflow: hidden; }
+.process-grid#process-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+}
+.process-grid#process-track .process-step { flex: 0 0 320px; }
+@media (max-width: 900px) {
+  .process-pin-wrapper { height: auto; }
+  .process-pin-wrapper section#process { position: static; height: auto; padding: 76px 0; }
+  .process-pin-inner { flex-direction: column; align-items: stretch; }
+  .process-grid#process-track { display: grid; grid-template-columns: 1fr; width: auto; }
+}
 .process-pin-inner {
   display: flex;
   gap: 64px;
