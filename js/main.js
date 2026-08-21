@@ -31,18 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
     updateHeroZoom();
   }
-    /* ---- How We Work: horizontal scroll pin (GSAP ScrollTrigger) ---- */
+     /* ---- How We Work: horizontal scroll pin (GSAP ScrollTrigger) ---- */
   const processTrack = document.getElementById('process-track');
   if (processTrack && window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
     gsap.registerPlugin(ScrollTrigger);
     const trackWrap = document.querySelector('.process-track-wrap');
+    const getScrollDistance = () => Math.max(0, processTrack.scrollWidth - trackWrap.offsetWidth);
     gsap.to(processTrack, {
-      x: () => -(processTrack.scrollWidth - trackWrap.offsetWidth),
+      x: () => -getScrollDistance(),
       ease: 'none',
       scrollTrigger: {
         trigger: '#process',
         start: 'top top',
-        end: () => `+=${processTrack.scrollWidth}`,
+        end: () => `+=${getScrollDistance()}`,
         pin: true,
         scrub: 1,
         invalidateOnRefresh: true,
