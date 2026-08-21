@@ -31,6 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
     updateHeroZoom();
   }
+    /* ---- How We Work: horizontal scroll pin (GSAP ScrollTrigger) ---- */
+  const processTrack = document.getElementById('process-track');
+  if (processTrack && window.gsap && window.ScrollTrigger && !prefersReducedMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+    const trackWrap = document.querySelector('.process-track-wrap');
+    gsap.to(processTrack, {
+      x: () => -(processTrack.scrollWidth - trackWrap.offsetWidth),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '#process',
+        start: 'top top',
+        end: () => `+=${processTrack.scrollWidth}`,
+        pin: true,
+        scrub: 1,
+        invalidateOnRefresh: true,
+      },
+    });
+  }
     /* ---- Subtle parallax on section background photos ---- */
   const parallaxEls = document.querySelectorAll('.has-bg-image, .has-photo, .testimonial-section');
   if (parallaxEls.length && !prefersReducedMotion) {
