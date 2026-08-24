@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
-  /* ---- Hero pinned scroll zoom (photo only — text stays static and clickable) ---- */
+  /* ---- Hero pinned scroll zoom (photo only — text stays static and clickable) ---- 
   const heroWrapper = document.querySelector('.hero-pin-wrapper');
   const heroMedia = document.querySelector('.hero-media');
   if (heroWrapper && heroMedia && !prefersReducedMotion) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
     updateHeroZoom();
-  }
+  } */
      /* ---- How We Work: horizontal scroll pin (scroll-linked, same technique as hero) ---- */
   const processWrapper = document.querySelector('.process-pin-wrapper');
   const processTrack = document.getElementById('process-track');
