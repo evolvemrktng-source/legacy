@@ -226,8 +226,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---- Footer year ---- */
-  document.querySelectorAll('.js-year').forEach((el) => {
-    el.textContent = new Date().getFullYear();
-  });
-});
+   /* ---- Shared footer (loaded once, injected on every page) ---- */
+  const footerMount = document.getElementById('footer-mount');
+  if (footerMount) {
+    fetch('/footer.html')
+      .then((res) => res.text())
+      .then((html) => {
+        footerMount.innerHTML = html;
+        footerMount.querySelectorAll('.js-year').forEach((el) => {
+          el.textContent = new Date().getFullYear();
+        });
+      })
+      .catch(() => {
+        footerMount.innerHTML = '<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; ' + new Date().getFullYear() + ' Legacy Builds Group. All rights reserved.</p></div></div></footer>';
+      });
+  }
