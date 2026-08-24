@@ -241,3 +241,4 @@ document.addEventListener('DOMContentLoaded', () => {
         footerMount.innerHTML = '<footer class="site-footer"><div class="container"><div class="footer-bottom"><p>&copy; ' + new Date().getFullYear() + ' Legacy Builds Group. All rights reserved.</p></div></div></footer>';
       });
   }
+});
