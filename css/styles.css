@@ -96,7 +96,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-.stats-section { background: var(--navy-950); padding: 88px 0; }
+.stats-section { background: var(--navy-950); padding: 40px 0; }
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
