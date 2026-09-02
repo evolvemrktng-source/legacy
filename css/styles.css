@@ -248,6 +248,7 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   gap: 11px;
   color: var(--white);
   margin-right: auto;
+  flex-shrink: 0;
 }
 .logo-mark { display: flex; color: var(--gold); flex-shrink: 0; }
 .logo-text {
@@ -265,9 +266,10 @@ html.reveal-armed .reveal.is-visible { opacity: 1; transform: translateY(0); }
   font-size: 0.78em;
   display: block;
 }
-.logo-img { height: 70px; width: auto; display: block; transition: height 0.35s var(--ease); }
+.logo-img { height: 70px; width: auto; max-width: none; flex-shrink: 0; display: block; transition: height 0.35s var(--ease); }
 .site-header.scrolled .logo-img { height: 70px; }
-.footer-grid .logo .logo-img { height: 70px; }
+.footer-grid .logo .logo-img { height: 70px; max-width: none; flex-shrink: 0; }
+.footer-brand { width: fit-content; }
 .main-nav {
   display: flex;
   align-items: center;
@@ -1247,7 +1249,7 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
   border-bottom: 1px solid var(--navy-line);
 }
 .footer-grid .logo { color: var(--white); margin-bottom: 16px; }
-.footer-tagline { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(245,243,239,0.75); margin-top: 10px; text-align: left; }
+.footer-tagline { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(245,243,239,0.75); margin-top: 10px; text-align: center; }
 .footer-col h5 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(245,243,239,0.45); margin-bottom: 18px; }
 .footer-col ul { display: flex; flex-direction: column; gap: 12px; }
 .footer-col a:hover { color: var(--white); }
