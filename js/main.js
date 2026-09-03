@@ -175,6 +175,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* ---- Services showcase (click to switch featured service) ---- */
+  const servicesList = document.getElementById('services-list');
+  if (servicesList) {
+    const services = [
+      { title: 'Architecture', desc: 'Concept development, architectural plans, elevations, visualization, space planning, and permit-ready documentation designed around your goals and the realities of construction.', img: '/assets/img/backgrounds/architecture.png', href: '/services/architecture.html' },
+      { title: 'Civil Engineering', desc: 'Site civil engineering coordinated from the beginning to improve constructability, reduce conflicts, and support municipal approval.', img: '/assets/img/backgrounds/engineering.png', href: '/services/civil-engineering.html' },
+      { title: 'Structural Engineering', desc: 'Structural design and analysis for new construction, additions, and renovations, coordinated with architecture from the earliest stage of a project.', img: '/assets/img/backgrounds/architecture.png', href: '/services/structural-engineering.html' },
+      { title: 'MEP Systems', desc: 'Mechanical, electrical, and plumbing systems designed for performance, code compliance, energy efficiency, and coordination with the architectural vision.', img: '/assets/img/backgrounds/mep-systems.png', href: '/services/mep-systems.html' },
+      { title: 'Professional Surveying', desc: 'Boundary, topographic, and construction surveying to establish accurate site data before design and confirm placement throughout construction.', img: '/assets/img/backgrounds/construction.png', href: '/services/professional-surveying.html' },
+      { title: 'Construction', desc: 'Hands-on project management, subcontractor coordination, scheduling, quality control, inspections, and closeout from foundation through final completion.', img: '/assets/img/backgrounds/construction.png', href: '/services/construction.html' },
+      { title: 'Consultation', desc: 'Independent guidance on feasibility, budget, scope, and project strategy for owners who need expert input before committing to a full design-build engagement.', img: '/assets/img/backgrounds/mep-systems.png', href: '/services/consultation.html' },
+    ];
+    const imgEl = document.getElementById('services-showcase-image');
+    const titleEl = document.getElementById('services-showcase-title');
+    const descEl = document.getElementById('services-showcase-desc');
+    const linkEl = document.getElementById('services-showcase-link');
+    servicesList.querySelectorAll('.services-list-item').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const s = services[Number(btn.dataset.service)];
+        if (!s) return;
+        servicesList.querySelectorAll('.services-list-item').forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        imgEl.style.opacity = '0';
+        setTimeout(() => {
+          imgEl.style.backgroundImage = `url('${s.img}')`;
+          imgEl.style.opacity = '1';
+        }, 150);
+        titleEl.textContent = s.title;
+        descEl.textContent = s.desc;
+        linkEl.href = s.href;
+        linkEl.innerHTML = `Explore ${s.title} <span aria-hidden="true">&rarr;</span>`;
+      });
+    });
+  }
+
   /* ---- Testimonial dots (visual only) ---- */
   document.querySelectorAll('.testimonial-dots .dot').forEach((dot) => {
     dot.addEventListener('click', () => {
