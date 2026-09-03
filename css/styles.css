@@ -661,8 +661,11 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
 }
 .services-showcase-image {
   aspect-ratio: 16/10;
-  background-size: cover;
+  max-height: 220px;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
+  background-color: var(--navy-900);
   box-shadow: var(--shadow-lg);
   position: relative;
   transition: opacity 0.3s var(--ease);
@@ -675,10 +678,10 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
   .services-showcase { flex-direction: column; gap: 32px; }
   .services-list { flex: none; }
 }
-.services-grid-mobile { display: none; }
+.services-grid.services-grid-mobile { display: none; }
 @media (max-width: 900px) {
   .services-showcase { display: none; }
-  .services-grid-mobile { display: grid; }
+  .services-grid.services-grid-mobile { display: grid; }
 }
 .services-grid {
   display: grid;
