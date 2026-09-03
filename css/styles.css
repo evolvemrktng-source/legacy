@@ -661,6 +661,7 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
 }
 .services-showcase-image {
   aspect-ratio: 16/10;
+  max-height: 280px;
   background-size: cover;
   background-position: center;
   box-shadow: var(--shadow-lg);
@@ -674,6 +675,7 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
 @media (max-width: 900px) {
   .services-showcase { flex-direction: column; gap: 32px; }
   .services-list { flex: none; }
+  .services-showcase-image { max-height: none; }
 }
 .services-grid {
   display: grid;
