@@ -661,11 +661,9 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
 }
 .services-showcase-image {
   aspect-ratio: 16/10;
-  max-height: 220px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  max-height: 340px;
+  background-size: cover;
   background-position: center;
-  background-color: var(--navy-900);
   box-shadow: var(--shadow-lg);
   position: relative;
   transition: opacity 0.3s var(--ease);
