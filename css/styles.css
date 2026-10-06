@@ -70,51 +70,7 @@
   align-items: center;
 }
 
-/* ===== Team cards: equal height + aligned footers ===== */
-.partners-grid {
-  align-items: stretch;
-}
 
-.partner-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.partner-photo {
-  width: 100%;
-  aspect-ratio: 4 / 2;
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-
-.partner-bio {
-  flex-grow: 1; /* absorbs extra space so everything below aligns */
-}
-
-.partner-tags {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.partner-tags span {
-  white-space: nowrap;
-}
-
-.partner-linkedin {
-  align-self: flex-start;
-  margin-top: 20px;
-}
-
-/* On narrow screens, allow tags to wrap */
-@media (max-width: 600px) {
-  .partner-tags {
-    flex-wrap: wrap;
-  }
-}
 .process-pin-heading { flex: 0 0 360px; }
 .process-track-wrap { flex: 1; overflow: hidden; }
 .process-grid#process-track {
