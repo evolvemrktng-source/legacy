@@ -1037,6 +1037,11 @@ font-size: clamp(3rem, 6.4vw, 5.6rem);
   color: #111;
   background: #fff;
 }
+/* Dropdown list items: dark text on a white list */
+.contact-form select option {
+  color: #111;
+  background: #fff;
+}
 .contact-form input[type="file"] { padding: 10px 14px; }
 .radio-row { display: flex; gap: 20px; flex-wrap: wrap; }
 .radio-row label { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(245,243,239,0.85); }
