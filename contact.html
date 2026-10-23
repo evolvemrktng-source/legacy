@@ -84,34 +84,34 @@
   
     </div>
 
-    <form class="contact-form reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="contact-form reveal" id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
       <input type="hidden" name="form-name" value="contact">
       <p class="hidden" style="display:none;">
         <label>Don't fill this out if you're human: <input name="bot-field"></label>
       </p>
       <div class="form-row">
         <div>
-          <label class="form-label" for="f-name">Full Name</label>
-          <input type="text" id="f-name" name="name" placeholder="Jane Smith" required>
+          <label class="form-label" for="f-name">Full Name <span class="req">*</span></label>
+          <input type="text" id="f-name" name="name" placeholder="Jane Smith" required data-label="your full name">
         </div>
         <div>
-          <label class="form-label" for="f-email">Email</label>
-          <input type="email" id="f-email" name="email" placeholder="jane@email.com" required>
+          <label class="form-label" for="f-email">Email <span class="req">*</span></label>
+          <input type="email" id="f-email" name="email" placeholder="jane@email.com" required data-label="your email">
         </div>
       </div>
       <div class="form-row">
         <div>
-          <label class="form-label" for="f-phone">Phone</label>
-          <input type="tel" id="f-phone" name="phone" placeholder="(313) 555-0100">
+          <label class="form-label" for="f-phone">Phone <span class="req">*</span></label>
+          <input type="tel" id="f-phone" name="phone" placeholder="(313) 555-0100" required data-label="your phone number">
         </div>
         <div>
-          <label class="form-label" for="f-address">Project Address</label>
-          <input type="text" id="f-address" name="address" placeholder="City, MI">
+          <label class="form-label" for="f-address">Project Address <span class="req">*</span></label>
+          <input type="text" id="f-address" name="address" placeholder="City, MI" required data-label="the project address">
         </div>
       </div>
       <div>
-        <label class="form-label" for="f-type">Project Type</label>
-        <select id="f-type" name="project_type">
+        <label class="form-label" for="f-type">Project Type <span class="req">*</span></label>
+        <select id="f-type" name="project_type" required data-label="a project type">
           <option value="">Select one</option>
           <option>Residential &mdash; New Construction</option>
           <option>Residential &mdash; Renovation / Addition</option>
@@ -121,8 +121,8 @@
         </select>
       </div>
       <div>
-        <label class="form-label" for="f-timeline">Desired Timeline</label>
-        <select id="f-timeline" name="timeline">
+        <label class="form-label" for="f-timeline">Desired Timeline <span class="req">*</span></label>
+        <select id="f-timeline" name="timeline" required data-label="a timeframe">
           <option value="">Select a timeframe</option>
           <option>As soon as possible</option>
           <option>1&ndash;3 months</option>
@@ -131,8 +131,8 @@
         </select>
       </div>
       <div>
-        <label class="form-label" for="f-details">Project Description</label>
-        <textarea id="f-details" name="details" rows="4" placeholder="Tell us about your goals, site, and scope."></textarea>
+        <label class="form-label" for="f-details">Project Description <span class="req">*</span></label>
+        <textarea id="f-details" name="details" rows="4" placeholder="Tell us about your goals, site, and scope." required minlength="10" data-label="a short project description"></textarea>
       </div>
       <div>
         <label class="form-label" for="f-upload">File Upload <span style="font-weight:400;color:rgba(245,243,239,0.45);">(plans, photos, or documents &mdash; optional)</span></label>
@@ -148,7 +148,6 @@
       </div>
       <button type="submit" class="btn btn-gold btn-block">Submit Project Inquiry</button>
       <p class="form-note" id="form-note" role="status"></p>
-      
     </form>
   </div>
 </section>
