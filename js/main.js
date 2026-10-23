@@ -243,12 +243,62 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFilter('project-filters', '#project-grid > *');
   setupFilter('insight-filters', '#insight-grid > *');
 
-  /* ---- Contact / inquiry form (submits to Netlify Forms) ---- */
+   /* ---- Contact / inquiry form (submits to Netlify Forms) ---- */
   const form = document.getElementById('contact-form');
   if (form) {
     const note = document.getElementById('form-note');
+
+    const clearError = (field) => {
+      field.classList.remove('field-error');
+      const msg = field.parentElement.querySelector('.field-msg');
+      if (msg) msg.remove();
+    };
+
+    const showError = (field, text) => {
+      clearError(field);
+      field.classList.add('field-error');
+      const msg = document.createElement('span');
+      msg.className = 'field-msg';
+      msg.textContent = text;
+      field.parentElement.appendChild(msg);
+    };
+
+    const validate = () => {
+      let firstBad = null;
+      form.querySelectorAll('[required]').forEach((field) => {
+        clearError(field);
+        const value = field.value.trim();
+        const label = field.dataset.label || 'this field';
+        let text = '';
+        if (!value) {
+          text = field.tagName === 'SELECT' ? 'Please select ' + label + '.' : 'Please enter ' + label + '.';
+        } else if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          text = 'Please enter a valid email address.';
+        } else if (field.minLength > 0 && value.length < field.minLength) {
+          text = 'Please add a little more detail (at least ' + field.minLength + ' characters).';
+        }
+        if (text) {
+          showError(field, text);
+          if (!firstBad) firstBad = field;
+        }
+      });
+      return firstBad;
+    };
+
+    form.querySelectorAll('[required]').forEach((field) => {
+      field.addEventListener('input', () => clearError(field));
+      field.addEventListener('change', () => clearError(field));
+    });
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      note.textContent = '';
+      const firstBad = validate();
+      if (firstBad) {
+        note.textContent = 'Please fix the highlighted fields and try again.';
+        firstBad.focus();
+        return;
+      }
       const data = new FormData(form);
       fetch('/', {
         method: 'POST',
@@ -264,20 +314,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
-
-   /* ---- Shared footer (loaded once, injected on every page) ---- */
-  const footerMount = document.getElementById('footer-mount');
-  if (footerMount) {
-    fetch('/footer.html')
-      .then((res) => res.text())
-      .then((html) => {
-        footerMount.innerHTML = html;
-        footerMount.querySelectorAll('.js-year').forEach((el) => {
-          el.textContent = new Date().getFullYear();
-        });
-      })
-      .catch(() => {
-        footerMount.innerHTML = '<div id="footer-mount"></div>';
-      });
-  }
-});
