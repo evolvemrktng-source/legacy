@@ -314,3 +314,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
   }
+  
+  /* ---- Shared footer (loaded once, injected on every page) ---- */
+  const footerMount = document.getElementById('footer-mount');
+  if (footerMount) {
+    fetch('/footer.html')
+      .then((res) => res.text())
+      .then((html) => {
+        footerMount.innerHTML = html;
+        footerMount.querySelectorAll('.js-year').forEach((el) => {
+          el.textContent = new Date().getFullYear();
+        });
+      })
+      .catch(() => {
+        footerMount.innerHTML = '<div id="footer-mount"></div>';
+      });
+  }
+});
